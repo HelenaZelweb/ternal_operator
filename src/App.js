@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import { Component } from 'react';
+import './App.css';
+import NewYork from './NewYork';
+import Paris from './Paris';
+class App extends Component{
+  state = {
+  show: true
+
+  }
+
+  render(){
+    const BtnText = this.state.show? "Paris" : "NewYork";
+    return <div >
+      <p >{this.state.show ? <NewYork/> : < Paris/> } </p>
+      <button  className ="btn" onClick = {() => {this.setState(
+        {show:!this.state.show}
+      )}}>{BtnText}</button>
     </div>
-  );
+  }
 }
+
 
 export default App;
